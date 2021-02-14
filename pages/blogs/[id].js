@@ -1,4 +1,5 @@
 import styles from '../../styles/BlogPost.module.css'
+import Head from 'next/head'
 
 export const getStaticPaths = async () => {
     const resPosts = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -35,10 +36,10 @@ export const getStaticProps = async (context) => {
 
 const Blogs = ({ post, user }) => {
     <Head>
-    <title>Blog Post | Home</title>
-    <meta name="keywords" content={post.title.charAt(0).toUpperCase() + post.title.slice(1)} />
-    <link rel="icon" href="/blog-logo.jpg" />
-  </Head>
+        <title>Blog Post | Home</title>
+        <meta name="keywords" content={post.title.charAt(0).toUpperCase() + post.title.slice(1)} />
+        <link rel="icon" href="/blog-logo.jpg" />
+    </Head>
     return (
         <div>
             <h3> {post.title.charAt(0).toUpperCase() + post.title.slice(1)}</h3>
